@@ -1,4 +1,4 @@
-﻿; ---------- CapsLock → ENG/KR toggle ----------
+; ---------- CapsLock → ENG/KR toggle ----------
 CapsLock:: {
     Send "{VK15}"   ; Hangul/English toggle
 }
@@ -22,7 +22,7 @@ SC138:: {           ; Right Alt physical key
 ;#l::return ; sign out -> disabled in regedit
 #k::return ; Connect
 #v::return ; Clipboard history
-#.::return ; Emojis
+;#.::return ; Emojis
 #,::return ; show open windows transparent
 
 
@@ -98,3 +98,18 @@ F6::
     
     SetTimer () => ToolTip(), -1000
 }
+
+
+
+; Catch F16 (Mac Caps Lock) -> Trigger Korean/English Toggle
+*F16::
+{
+    Send "{vk15}"
+}
+
+; 2. (Optional) If you want Right Alt (sent by Right Cmd) to act as Caps Lock:
+;*RAlt::
+;{
+;    SetCapsLockState !GetKeyState("CapsLock", "T")
+;}
+
